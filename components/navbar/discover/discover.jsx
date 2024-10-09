@@ -2,43 +2,9 @@ import React from "react";
 import Link from "next/link";
 
 import Style from "./discover.module.css";
+import { discover } from "../../../constants";
 
 export default function Discover() {
-  const discover = [
-    {
-      name: "Collection",
-      link: "collection",
-    },
-    {
-      name: "Search",
-      link: "searchPage",
-    },
-    {
-      name: "Author Profile",
-      link: "author",
-    },
-    {
-      name: "NFT Details",
-      link: "NFT-details",
-    },
-    {
-      name: "Account Setting",
-      link: "account",
-    },
-    {
-      name: "Upload NFT",
-      link: "uploadNFT",
-    },
-    {
-      name: "Connect Wallet",
-      link: "connectWallet",
-    },
-    {
-      name: "Blog",
-      link: "blog",
-    },
-  ];
-
   return (
     <div>
       {discover.map((el, i) => (
