@@ -15,31 +15,62 @@ import { BsSearch } from "react-icons/bs";
 import { CgMenuLeft, CgMenuRight } from "react-icons/cg";
 import { DiJqueryLogo } from "react-icons/di";
 
-const openMenu = (e) => {
-  const btnText = e.target.innerText;
-  setDiscover(btnText === "Discover");
-  setHelp(btnText === "Help Center");
-  setNotification(false);
-  setProfile(false);
-};
-
-const openNotification = () => {
-  if (!notification) {
-    setNotification(true);
-    setDiscover(false);
-    setHelp(false);
-    setProfile(false);
-  } else {
-    setNotification(false);
-  }
-};
-
 export default function Navbar() {
   const [discover, setDiscover] = useState(false);
   const [help, setHelp] = useState(false);
   const [notification, setNotification] = useState(false);
   const [profile, setProfile] = useState(false);
   const [openSideMenu, setOpenSideMenu] = useState(false);
+
+  const openMenu = (e) => {
+    const btnText = e.target.innerText;
+    if (btnText == "Discover") {
+      setDiscover(true);
+      setHelp(false);
+      setNotification(false);
+      setProfile(false);
+    } else if (btnText == "Help Center") {
+      setDiscover(false);
+      setHelp(true);
+      setNotification(false);
+      setProfile(false);
+    } else {
+      setDiscover(false);
+      setHelp(false);
+      setNotification(false);
+      setProfile(false);
+    }
+  };
+
+  const openNotification = () => {
+    if (!notification) {
+      setNotification(true);
+      setDiscover(false);
+      setHelp(false);
+      setProfile(false);
+    } else {
+      setNotification(false);
+    }
+  };
+
+  const openProfile = () => {
+    if (!profile) {
+      setProfile(true);
+      setHelp(false);
+      setDiscover(false);
+      setNotification(false);
+    } else {
+      setProfile(false);
+    }
+  };
+
+  const openSideBar = () => {
+    if (!openSideMenu) {
+      setOpenSideMenu(true);
+    } else {
+      setOpenSideMenu(false);
+    }
+  };
 
   return (
     <div className={Style.navbar}>
@@ -83,18 +114,51 @@ export default function Navbar() {
           </div>
 
           {/* CREATE BUTTON SECTION */}
-          {/* <div className={Style.navbar_container_right_button}>
-            {currentAccount == "" ? (
-              <Button btnName="Connect" handleClick={() => connectWallet()} />
-            ) : (
-              <Button
-                btnName="Create"
-                handleClick={() => router.push("/uploadNFT")}
+          <div className={Style.navbar_container_right_button}>
+            <Button
+              btnName="Create"
+              handleClick={() => router.push("/uploadNFT")}
+            />
+          </div>
+
+          {/* USER PROFILE */}
+          <div className={Style.navbar_container_right_profile_box}>
+            <div className={Style.navbar_container_right_profile}>
+              <Image
+                src={images.user1}
+                alt="Profile"
+                width={40}
+                height={40}
+                onClick={() => openProfile()}
+                className={Style.navbar_container_right_profile}
               />
-            )}
-          </div> */}
+
+              {profile && <Profile currentAccount={currentAccount} />}
+            </div>
+          </div>
+
+          {/* MENU BUTTON */}
+          <div className={Style.navbar_container_right_menuBtn}>
+            <CgMenuRight
+              className={Style.menuIcon}
+              onClick={() => openSideBar()}
+            />
+          </div>
         </div>
       </div>
+
+      {/* SIDBAR CPMPONE/NT */}
+      {openSideMenu && (
+        <div className={Style.sideBar}>
+          <SideBar
+            setOpenSideMenu={setOpenSideMenu}
+            // currentAccount={currentAccount}
+            // connectWallet={connectWallet}
+          />
+        </div>
+      )}
+
+      {/* {openError && <Error />} */}
     </div>
   );
 }
