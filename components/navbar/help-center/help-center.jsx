@@ -2,30 +2,9 @@ import React from "react";
 import Link from "next/link";
 
 import Style from "./help-center.module.css";
+import { helpCenter } from "../../../constants";
 
 export default function HelpCenter() {
-  const helpCenter = [
-    {
-      name: "About",
-      link: "aboutus",
-    },
-    {
-      name: "Contact Us",
-      link: "contactus",
-    },
-    {
-      name: "Sign Up",
-      link: "signUp",
-    },
-    {
-      name: "LogIn",
-      link: "login",
-    },
-    {
-      name: "Subscription",
-      link: "subscription",
-    },
-  ];
   return (
     <div className={Style.box}>
       {helpCenter.map((el, i) => (
