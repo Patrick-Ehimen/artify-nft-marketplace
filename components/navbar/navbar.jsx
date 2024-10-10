@@ -77,7 +77,7 @@ export default function Navbar() {
       <div className={Style.navbar_container}>
         <div className={Style.navbar_container_left}>
           <div className={Style.logo}>
-            <Image src={images.logo} alt="logo" width={100} height={100} />
+            <Image src={images.logo} alt="logo" width={50} height={50} />
           </div>
           <div className={Style.navbar_container_left_box_input}>
             <div className={Style.navbar_container_left_box_input_box}>
@@ -97,12 +97,14 @@ export default function Navbar() {
             )}
           </div>
 
+          {/* HELP CENTER MENU */}
           <div className={Style.navbar_container_right_help}>
             <p onClick={(e) => openMenu(e)}>Help Center</p>
-            {/* {help && ( */}
-            <div className={Style.navbar_container_right_help_box}>
-              <HelpCenter />
-            </div>
+            {help && (
+              <div className={Style.navbar_container_right_help_box}>
+                <HelpCenter />
+              </div>
+            )}
           </div>
 
           <div className={Style.navbar_container_right_notify}>
@@ -133,7 +135,8 @@ export default function Navbar() {
                 className={Style.navbar_container_right_profile}
               />
 
-              {profile && <Profile currentAccount={currentAccount} />}
+              {/* {profile && <Profile currentAccount={currentAccount} />}  */}
+              {profile && <Profile />}
             </div>
           </div>
 
