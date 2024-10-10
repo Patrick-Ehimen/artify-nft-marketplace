@@ -4,6 +4,10 @@
   background-color: var(--main-bg-color);
 }
 
+.paragraph {
+  padding-top: 50px;
+}
+
 .sideBar_box_logo {
   font-size: 5rem;
   margin-bottom: 3rem;
