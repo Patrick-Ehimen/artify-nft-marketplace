@@ -57,10 +57,10 @@ export default function Sidebar({
         onClick={() => closeSideBar()}
       />
       <div className={Style.sideBar_box}>
-        <Image src={images.logo} alt="logo" width={150} height={150} />
-        <p>
+        <Image src={images.logo} alt="logo" width={80} height={80} />
+        <p style="padding-top:50px">
           Discover the most outstanding articles on all topices of NFT & write
-          your own stories and share them
+          your own stories and share them.
         </p>
         <div className={Style.sideBar_social}>
           {[
